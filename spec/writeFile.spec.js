@@ -2,7 +2,7 @@ var path = require('path'),
     fs = require('fs'),
     crypto = require('crypto');
 
-describe("readFile functionality", function() {
+describe("writeFile functionality", function() {
     var _this = this;
     require('./harness.js')(_this);
     it("creates a directory", function(done) {
