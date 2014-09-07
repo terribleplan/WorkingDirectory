@@ -1,0 +1,22 @@
+{
+  "name": "working-directory",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node spec/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/terribleplan/WorkingDirectory.git"
+  },
+  "author": "Kegan Myers <kegan@keganmyers.com>",
+  "license": "BSD 2-Clause",
+  "bugs": {
+    "url": "https://github.com/terribleplan/WorkingDirectory/issues"
+  },
+  "homepage": "https://github.com/terribleplan/WorkingDirectory",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
