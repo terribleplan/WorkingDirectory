@@ -3,7 +3,7 @@ var temp = require('./lib/tempdir.js'),
     path = require('path'),
     fs = require('fs');
 
-describe("mkdir functionality", function() {
+describe("rmdir functionality", function() {
     var tempdir, wd;
     beforeEach(function(done) {
         temp(function(dir) {
@@ -12,14 +12,13 @@ describe("mkdir functionality", function() {
             done();
         })
     });
-    it("creates a directory", function(done) {
+    it("deletes a directory", function(done) {
         var dirname = "testDir";
-        wd.mkdir(dirname, function(err, nwd) {
+        var resolved = path.resolve(tempdir, dirname);
+        wd.rmdir(dirname, function(err) {
             expect(err).toBe(null);
-            expect(nwd.cwd).toEqual(path.resolve(tempdir, dirname));
-            fs.stat(nwd.cwd, function(err, stats) {
-                if (err) throw err;
-                expect(stats.isDirectory()).toBeTruthy();
+            fs.exists(resolved, function(exists) {
+                expect(exists).toBeFalsy();
                 done();
             });
         });
