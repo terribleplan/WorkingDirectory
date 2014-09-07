@@ -9,14 +9,12 @@ describe("readFile functionality", function() {
         var fname = "testDir";
         var resolved = path.resolve(_this.tempdir, fname);
         crypto.pseudoRandomBytes(1024, function(err, data) {
-            console.log("rnd");
             if (err) throw err;
             fs.writeFile(resolved, data, function(err) {
                 if (err) throw err;
-                console.log("w");
                 _this.wd.readFile(fname, function(err, rdata) {
                     expect(err).toBe(null);
-                    expect(rdata).toBe(data);
+                    expect(rdata.toString()).toBe(data.toString());
                     done();
                 });
             });
