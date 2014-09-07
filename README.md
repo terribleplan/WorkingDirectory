@@ -2,7 +2,7 @@ WorkingDirectory
 ================
 [![License][license-image]][license-url]
 [![NPM Version][npm-version-image]][npm-url]
-[![NPM Version][tag-version-image]][github-url]
+[![Tag Version][tag-version-image]][github-url]
 [![Build Status][build-image]][build-url]
 
 WorkingDirectory is a library that allows for simple file manipulation through
