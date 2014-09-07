@@ -56,4 +56,24 @@ WorkingDirectory.prototype.readFile = function(fileName, options, callback) {
     fs.readFile(fileName, options, cb);
 };
 
+WorkingDirectory.prototype.writeFile = function(fileName, data, options, callback) {
+    if (typeof fileName !== "string") throw new Error("path must be a string");
+    fileName = path.resolve(this.cwd, fileName);
+    if (typeof options === "function") {
+        callback = options;
+        options = {};
+    } else if (typeof callback !== "function") {
+        throw new Error("callback must be a function");
+    } else if (typeof options !== "object") {
+        throw new Error("options must be an object");
+    } else {
+        options = {};
+    }
+    function cb(err, data) {
+        if (err) return callback(err);
+        return callback(null, data);
+    }
+    fs.writeFile(fileName, data, options, cb);
+};
+
 module.exports = WorkingDirectory;
