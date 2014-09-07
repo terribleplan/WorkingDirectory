@@ -8,7 +8,7 @@ describe("readFile functionality", function() {
     it("creates a directory", function(done) {
         var fname = "testDir";
         var resolved = path.resolve(_this.tempdir, fname);
-        crypto.pseudoRandomBytes(1024, function(err, data) {
+        crypto.pseudoRandomBytes(128 * 1024, function(err, data) {
             if (err) throw err;
             fs.writeFile(resolved, data, function(err) {
                 if (err) throw err;
