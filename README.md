@@ -1,9 +1,9 @@
 WorkingDirectory
 ================
-WorkingDirectory is a library that allows for simple file manipulation through
-creating an instance that all of your file operations can be done relative to.
 [![Build Status](https://secure.travis-ci.org/terribleplan/WorkingDirectory.png?branch=master)](https://travis-ci.org/terribleplan/WorkingDirectory)
 
+WorkingDirectory is a library that allows for simple file manipulation through
+creating an instance that all of your file operations can be done relative to.
 Usage
 -----
 ```javascript

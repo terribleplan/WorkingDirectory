@@ -1,7 +1,7 @@
 {
   "name": "working-directory",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A library that allows for simpler file manipulation relative to a directory",
   "main": "index.js",
   "scripts": {
     "test": "jasmine-node spec/"
