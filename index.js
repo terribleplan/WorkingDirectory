@@ -20,13 +20,20 @@ WorkingDirectory.prototype.mkdir = function (userPath, mode, callback) {
         mode = mode & (~process.umask());
     }
     function cb(err) {
-        if (err) {
-            return callback(err);
-        }
+        if (err) return callback(err);
         return callback(null, new WorkingDirectory(userPath));
     }
-
     fs.mkdir(userPath, mode, cb);
+};
+
+WorkingDirectory.prototype.rmdir = function(userPath, callback) {
+    if (typeof userPath !== "string") throw new Error("path must be a string");
+    userPath = path.resolve(this.cwd, userPath);
+    if (typeof callback !== "function") throw new Error("callback must be a function");
+    fs.rmdir(userPath, function (err) {
+        if (err) return callback(err);
+        return callback(null);
+    });
 };
 
 module.exports = WorkingDirectory;

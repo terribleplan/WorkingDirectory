@@ -1,7 +1,8 @@
 var temp = require('./lib/tempdir.js'),
     WorkingDir = require('../index.js'),
     path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    rimraf = require('rimraf');
 
 describe("mkdir functionality", function() {
     var tempdir, wd;
@@ -9,6 +10,12 @@ describe("mkdir functionality", function() {
         temp(function(dir) {
             tempdir = dir;
             wd = new WorkingDir(tempdir);
+            done();
+        })
+    });
+    afterEach(function(done) {
+        rimraf(tempdir, function(err) {
+            if (err) throw err;
             done();
         })
     });
